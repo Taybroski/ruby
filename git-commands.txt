@@ -1,0 +1,23 @@
+git status
+
+git add <file here>
+
+git commit -am "comment here"
+
+// log of all changes done to your project
+git log
+
+// will print a list of branches including the one you are currently on.
+git branch
+
+// creates a new branch 
+git branch branchnamehere
+
+// inspect branch
+git checkout branchnamehere
+
+// Generate a new GPG Key to commit to GitHub
+/ useful site V
+https://help.github.com/articles/generating-a-new-gpg-key/#platform-linux
+
+gpg --gen-key
