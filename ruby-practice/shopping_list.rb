@@ -1,3 +1,19 @@
+# I WANT TO EVOLVE THIS LIST SO IT CAN BE MULTIPLE SHOPPING LISTS IN ONE.
+# 
+# 			FOR EXAMPLE:
+# 											- CAR PARTS
+# 					 						- GENERAL GROCERIES
+# 					 						- HOLIDAY ESSENTIALS
+# 					 						- HEALTH ESSENTIALS
+# 
+# POSSIBLE FEATURES:
+# 											- User controls what sections they
+# 												would like to add to their list.
+# 											- Ask if they would like their price
+# 												inputs rounded, or left as floats.
+
+
+
 # Asks user to name their list.
 def create_list
   print "What is the name of your list: "
@@ -6,12 +22,24 @@ def create_list
   hash = {"name" => name, "items" => Array.new}
   return hash
 end
-
+# 
+# 
 # Dashed line seperator function
 def print_seperator(character="-")
 	puts character * 60
 end
-
+# 
+# 
+# add user input item quantity
+def add_item_qty
+	print "How many: "
+  quantity = gets.chomp.to_i
+	if quantity != "y"  && quantity != "n" && quantity != ""
+		print "How many: "
+		quantity = gets.chomp.to_i
+end
+# 
+# 
 #Asks user to input their items and the quantity of the items.
 def add_list_item 
   print "What is the item called: "
@@ -22,15 +50,8 @@ def add_list_item
   hash = {"name" => item_name, "quantity" => quantity}
   return hash
 end
-
-def add_item_qty
-	print "How many: "
-  quantity = gets.chomp.to_i
-	if quantity != "y"  && quantity != "n" && quantity != ""
-		print "How many: "
-		quantity = gets.chomp.to_i
-end
-
+# 
+# 
 #List printing function.
 def print_list(list)
 	puts "\t\t\t#{list['name']}"
