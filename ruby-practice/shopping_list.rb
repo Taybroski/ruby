@@ -18,7 +18,6 @@
 def create_list
   print "What is the name of your list: "
   name = gets.chomp
-  
   hash = {"name" => name, "items" => Array.new}
   return hash
 end
@@ -31,31 +30,43 @@ end
 # 
 # 
 # add user input item quantity
-def add_item_qty
-	print "How many: "
-  quantity = gets.chomp.to_i
-	if quantity != "y"  && quantity != "n" && quantity != ""
-		print "How many: "
-		quantity = gets.chomp.to_i
-end
+# def add_item_qty
+# 	if quantity != "y"  && quantity != "n" && quantity != ""
+# 		print "How many: "
+# 		quantity = gets.chomp.to_i
+# 	end
+# end
 # 
 # 
 #Asks user to input their items and the quantity of the items.
 def add_list_item 
   print "What is the item called: "
   item_name = gets.chomp
+	print "How many: "
+  quantity = gets.chomp.to_i
 
-  add_item_qty()
-  
   hash = {"name" => item_name, "quantity" => quantity}
   return hash
 end
 # 
 # 
+
+def item_add
+	print "Would you like to add another item? (y/n): "
+	answer = gets.chomp
+	if answer == "y" || answer == ""
+		add_list_item()
+	else 
+		answer == "n"
+	end
+end
+
+
 #List printing function.
 def print_list(list)
 	puts "\t\t\t#{list['name']}"
-	print print_seperator()
+	print_seperator()
+	
 	list["items"].each do |item|
 		puts "\tItem: " + item['name'] + "\t\t\t" + 
 		"Quantity: " + item['quantity'].to_s
@@ -70,13 +81,12 @@ list = create_list()
 while answer == "y" || answer == ""
 	#pushes shopping list items into the hash.
 	list['items'].push(add_list_item())
-	puts "Would you like to add another item? (y/n): "
+	item_add()
 	answer = gets.chomp
 	if answer == "n"
 		break
 		elsif answer != "y" && answer != "n" && answer != ""
-		puts "Please enter 'y' or 'n' to add another item to your shopping list"
-		add_list_item()
+		puts "INVALID ENTRY! Press ENTER, 'y' or 'n' to add another item to your list"
 	end
 end
 
