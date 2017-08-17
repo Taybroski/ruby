@@ -1,4 +1,4 @@
-# THIS GAME WILL GUESS WHART NUBER YOU HAVE ENTERED VIA STRDIN.
+# THIS GAME WILL GUESS WHAT NUBER YOU HAVE ENTERED VIA STDIN.
 # TO DO LIST:
 # - BUILD INPUT FUNCTION.
 # - BUILD RANDOM NUMBER GENERATOR FUNCTION.
@@ -21,21 +21,18 @@ def gen_random
 		
 		if (random == user_number)
 			answer = true
-			puts "I got it! The number was #{random}! It took me #{guesses} guesse(s)!\nWould you like to play again? (ENTER/y/n)"
+			puts "I got it! The number was #{random}! It took me #{guesses} guesses!\nWould you like to play again? (ENTER/y/n)"
 			play_again = gets.chomp
-				if play_again == "y" || play_again == "n" || play_again == ""
-					answer = true
-					gen_random()
-				else
-					answer = false
-					break
-				end
-			elsif (random != user_number)
-				guesses += 1
-				random
-				else (guesses == 100)
-					puts "I am sorry! I have taken 100 guesses and still couldn't work it out!"
-					break
+			if play_again == "y" || play_again == ""
+				gen_random()
+			else
+				break
+			end
+		elsif (random != user_number)
+			guesses += 1
+		elsif (guesses == 100)
+			puts "I am sorry! I have taken 100 guesses and still couldn't work it out!"
+			break
 		end
 	end
 end
